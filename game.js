@@ -1325,6 +1325,14 @@ function gameLoop(time) {
 
 document.querySelector('#start-button').addEventListener('click', startGame);
 document.querySelector('#restart-button').addEventListener('click', startGame);
+document.querySelector('.wordmark').addEventListener('click', (event) => {
+  event.preventDefault();
+  resetGame();
+  game.state = 'title';
+  document.body.dataset.state = game.state;
+  titleScreen.hidden = false;
+  gameoverScreen.hidden = true;
+});
 titleScreen.addEventListener('pointerdown', (event) => {
   if (event.target.closest('button')) return;
   startGame();
